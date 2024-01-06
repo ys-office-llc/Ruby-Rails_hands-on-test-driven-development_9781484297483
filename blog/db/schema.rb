@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_06_112230) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_06_131948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "slug"
+    t.text "summary"
+    t.text "content"
+    t.boolean "published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["published"], name: "index_pages_on_published"
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
+    t.index ["title"], name: "index_pages_on_title", unique: true
+    t.index ["user_id"], name: "index_pages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -23,4 +38,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_06_112230) do
     t.index ["name"], name: "index_users_on_name", unique: true
   end
 
+  add_foreign_key "pages", "users"
 end
