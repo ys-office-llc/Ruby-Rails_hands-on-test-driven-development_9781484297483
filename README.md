@@ -1,5 +1,7 @@
 # Hands-on Test-Driven Development: Using Ruby, Ruby on Rails, and RSpec
 
+![image](https://github.com/ys-office-llc/Ruby-Rails_hands-on-test-driven-development_9781484297483/assets/31363256/9ab0c9c1-269f-4e33-abfc-39033d7b0575)
+
 ## 4. Getting Started with Ruby on Rails
 
 ### `foreman start -f Procfile.dev`
