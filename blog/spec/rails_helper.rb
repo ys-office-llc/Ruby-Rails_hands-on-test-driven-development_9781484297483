@@ -64,7 +64,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.before(:each, type: :system) do
     driver = :selenium_chrome_headless
-    driver = :selenium_chrome if ENV['SHOW_BROWSER']
+    driver = :selenium_chrome if ENV['SHOW_CHROME']
     driven_by(driver)
   end
 end
