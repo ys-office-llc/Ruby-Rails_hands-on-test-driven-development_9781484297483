@@ -18,4 +18,19 @@ RSpec.describe Page, type: :model do
       expect(page.slug).to eq('foo-bar-87')
     end
   end
+
+  describe 'scopes' do
+    describe '.published' do
+      let(:page1) { create(:page, :published) }
+      let(:page2) { create(:page) }
+
+      before do
+        [page1, page2]
+      end
+
+      it 'returns only published pages' do
+        expect(Page.published).to eq([page1])
+      end
+    end
+  end
 end
